@@ -17,6 +17,11 @@ public class InscricaoService {
         // Validar os dados da atividade
         validateInscrito(inscrito);
 
+        Atividade atividade = inscrito.getAtividade();
+        if (atividade.getInscricoes() >= atividade.getVagasDisponiveis()) {
+            throw new RuntimeException("No vacancies available for this activity");
+        }
+
         // Verificar disponibilidade de vagas
         if (inscrito.getInscricoes() >= inscrito.getVagasDisponiveis()) {
             throw new RuntimeException("As vagas para esta atividade já foram esgotadas.");

@@ -55,4 +55,14 @@ public class Inscrito {
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
     }
+
+        private int inscricoes;
+
+    public int getInscricoes() {
+        return inscricoes;
+    }
+
+    public void setInscricoes(int inscricoes) {
+        this.inscricoes = inscricoes;
+    }
 }
