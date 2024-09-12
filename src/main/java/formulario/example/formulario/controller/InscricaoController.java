@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import formulario.example.formulario.model.Inscricao;
+import formulario.example.formulario.entity.Inscricao;
 import formulario.example.formulario.service.InscricaoService;
 
 @RestController

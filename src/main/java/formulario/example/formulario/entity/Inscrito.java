@@ -1,38 +1,35 @@
-package formulario.example.formulario.model;
+package formulario.example.formulario.entity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Conta")
-public class Inscricao {
+@Table(name = "Inscrito")
+public class Inscrito {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CPF")
-    private Long CPF;
+    @Column(name = "id", nullable = false)
+    private Long id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @OneToOne(mappedBy = "funcionario")
-    @JoinColumn(name = "id_atividade")
-    private Atividade atividade;
-    
     @Column(name = "email", nullable = false)
     private String email;
 
-    public Long getCPF() {
-        return CPF;
-    }
+    @ManyToOne
+    @JoinColumn(name = "atividade_id", nullable = false)
+    private Atividade atividade;
 
-    public void setCPF(Long CPF) {
-        this.CPF = CPF;
+    public Long getId() {
+        return id;
     }
 
     public String getNome() {
@@ -43,14 +40,6 @@ public class Inscricao {
         this.nome = nome;
     }
 
-    public Atividade getAtividade() {
-        return atividade;
-    }
-
-    public void setAtividade(Atividade atividade) {
-        this.atividade = atividade;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -59,7 +48,11 @@ public class Inscricao {
         this.email = email;
     }
 
+    public Atividade getAtividade() {
+        return atividade;
+    }
 
-
-
+    public void setAtividade(Atividade atividade) {
+        this.atividade = atividade;
+    }
 }

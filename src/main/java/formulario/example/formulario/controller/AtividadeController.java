@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import formulario.example.formulario.model.Atividade;
+import formulario.example.formulario.entity.Atividade;
 import formulario.example.formulario.service.AtividadeService;
 
 @RestController
@@ -18,12 +18,11 @@ public class AtividadeController {
     @PostMapping
     public ResponseEntity<Atividade> criarAtividade(@RequestBody Atividade atividade) {
         try {
-            atividadeService.processAtividade(atividade);
+            atividadeService.(atividade);
             return ResponseEntity.status(HttpStatus.CREATED).body(atividade);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
-
 
 }
